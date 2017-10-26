@@ -1,0 +1,41 @@
+﻿// 1. if the user's machine has multiple processors, the application can apply a function that splits
+//the time consuming problem of computing the vector similarities and runs it parallely.
+*multithreading:yes/no (default=no)
+//2.to avoid overloading the memory, the application gives the user the opportunity to decide how many of the 
+//source/target vectors are loaded in the memory at a specific moment; it avoids overloading the memory but can bring an important time delay; 
+//this parameter is activated only for "multithreading:yes"
+//default value: 0; if the parameter's value is bigger than the number of vectors in the matrix, its use becomes obsolete.
+*loading:int(default=0)
+//3.the minimal frequency in the corpus of the words the user wants to find translation equivalents for: being based on word countings,
+//the method is sensitive to the frequency of the words. the bigger frequency, the better performance. this parameter should be at least bigger
+//than 3 and should take into account the corpus dimension.
+*frequency:int(default=3)
+//4.the user can specify the length of the text window in which coocurences are counted
+*window:int(default=5)
+//5.asking for the loglikelyhood of a coocurence to be bigger than a certain threshold, the user can reduce the space and time costs
+*ll:int(default=3)
+//6.the user is asked to introduce a list of all the auxiliary/modal verbs for the source language, with all their morphological variants, separated by white space
+*sourceamverblist:string (default=is are be will shall may can etc.)
+//7.the user is asked to introduce a list of all the auxiliary/modal verbs for the source language, with all their morphological variants, separated by white space
+*targetamverblist:string (default=este sunt suntem sunteţi fi poate pot putem puteţi etc.)
+// 8.the user can decide if he/she allows to the application to cross the boundaries between the parts of speech (e.g. to translate a noun as a verb)
+*crossPOS:yes/no(default:no)
+//9.the user has to provide a list of all the open class POS labels (i.e. labels for common nouns, proper nouns, adjective, adverbs and main verbs) of the source language
+*sPOSlist:string(default=nc np a r vm)
+//10.the user has to provide a list of all the open class POS labels (i.e. labels for common nouns, proper nouns, adjective, adverbs and main verbs) of the target language
+*tPOSlist:string(default=nc np a r vm)
+//11.the user can decide if a cognet score (Levenstein Distance) will be take into account in computing the vector similiarities for proper nouns
+*LD:yes/no(default=yes)
+
+
+multithreading:yes
+loading:5000
+frequency:10
+window:5
+ll:3
+sourceamverblist:am is are was were been beeing had has have be will would shall should may might must can could need
+targetamverblist:este sunt eşti suntem sunteţi vei va voi vor vom veţi era eram erai eraţi fi pot poţi poate putem puteţi putea puteai puteam puteaţi puteau ar aţi am aş ai are avem au aveţi aveam avea aveaţi aveai aveau
+crossPOS:no
+sPOSlist:nc np a r vm
+tPOSlist:nc np a r vm
+LD:yes
